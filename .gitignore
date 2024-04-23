@@ -12,6 +12,7 @@ nbproject/
 
 ## Build folders
 build/
+Build/*
 build_*/
 install/
 install_*/
