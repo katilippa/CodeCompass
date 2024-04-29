@@ -1,6 +1,6 @@
 #include <webserver/pluginhelper.h>
 
-#include <service/dummyservice.h>
+#include <service/rustservice.h>
 
 /* These two methods are used by the plugin manager to allow dynamic loading
    of CodeCompass Service plugins. Clang (>= version 6.0) gives a warning that
@@ -24,7 +24,7 @@ extern "C"
 
     description.add_options()
       ("dummy-result", po::value<std::string>()->default_value("Dummy result"),
-        "This value will be returned by the dummy service.");
+        "This value will be returned by the rust service.");
 
     return description;
   }
@@ -36,8 +36,8 @@ extern "C"
     cc::webserver::registerPluginSimple(
       context_,
       pluginHandler_,
-      CODECOMPASS_SERVICE_FACTORY_WITH_CFG(Dummy, dummy),
-      "DummyService");
+      CODECOMPASS_SERVICE_FACTORY_WITH_CFG(Rust, rust),
+      "RustService");
   }
 }
 #pragma clang diagnostic pop

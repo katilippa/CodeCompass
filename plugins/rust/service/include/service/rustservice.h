@@ -1,5 +1,5 @@
-#ifndef CC_SERVICE_DUMMY_DUMMYSSERVICE_H
-#define CC_SERVICE_DUMMY_DUMMYSSERVICE_H
+#ifndef CC_SERVICE_RUST_RUSTSSERVICE_H
+#define CC_SERVICE_RUST_RUSTSSERVICE_H
 
 #include <memory>
 #include <vector>
@@ -10,24 +10,24 @@
 #include <util/odbtransaction.h>
 #include <webserver/servercontext.h>
 
-#include <DummyService.h>
+#include <RustService.h>
 
 namespace cc
 {
 namespace service
 {
-namespace dummy
+namespace rust
 {
 
-class DummyServiceHandler : virtual public DummyServiceIf
+class RustServiceHandler : virtual public RustServiceIf
 {
 public:
-  DummyServiceHandler(
+  RustServiceHandler(
     std::shared_ptr<odb::database> db_,
     std::shared_ptr<std::string> datadir_,
     const cc::webserver::ServerContext& context_);
 
-  void getDummyString(std::string& str_);
+  void getRustString(std::string& str_);
 
 private:
   std::shared_ptr<odb::database> _db;
@@ -36,8 +36,8 @@ private:
   const boost::program_options::variables_map& _config;
 };
 
-} // dummy
+} // rust
 } // service
 } // cc
 
-#endif // CC_SERVICE_DUMMY_DUMMYSSERVICE_H
+#endif // CC_SERVICE_RUST_RUSTSSERVICE_H
