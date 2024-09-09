@@ -27,6 +27,8 @@ public:
     std::shared_ptr<std::string> datadir_,
     const cc::webserver::ServerContext& context_);
 
+  void getFileTypes(std::vector<std::string>& return_) override;
+
   void getRustString(std::string& str_);
 
 private:

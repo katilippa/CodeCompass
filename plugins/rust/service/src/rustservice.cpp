@@ -21,6 +21,12 @@ void RustServiceHandler::getRustString(std::string& str_)
   str_ = _config["dummy-result"].as<std::string>();
 }
 
+void RustServiceHandler::getFileTypes(std::vector<std::string>& return_)
+{
+  return_.push_back("RS");
+  return_.push_back("Dir");
+}
+
 } // rust
 } // service
 } // cc
