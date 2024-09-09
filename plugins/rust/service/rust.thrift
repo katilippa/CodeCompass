@@ -1,7 +1,9 @@
-namespace cpp cc.service.dummy
-namespace java cc.service.dummy
+namespace cpp cc.service.rust
+namespace java cc.service.rust
 
-service DummyService
+service RustService
 {
-  string getDummyString()
+  list<string> getFileTypes()
+
+  string getRustString()
 }

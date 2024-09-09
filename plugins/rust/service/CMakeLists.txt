@@ -9,8 +9,8 @@ include_directories(SYSTEM
 
 add_custom_command(
   OUTPUT
-    ${CMAKE_CURRENT_BINARY_DIR}/gen-cpp/DummyService.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/gen-cpp/DummyService.h
+    ${CMAKE_CURRENT_BINARY_DIR}/gen-cpp/RustService.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/gen-cpp/RustService.h
     ${CMAKE_CURRENT_BINARY_DIR}/gen-cpp
   COMMAND
     ${THRIFT_EXECUTABLE} --gen cpp
@@ -22,7 +22,7 @@ add_custom_command(
     "Generating Thrift for rust.thrift")
 
 add_library(rustthrift STATIC
-  ${CMAKE_CURRENT_BINARY_DIR}/gen-cpp/DummyService.cpp)
+  ${CMAKE_CURRENT_BINARY_DIR}/gen-cpp/RustService.cpp)
 
 target_compile_options(rustthrift PUBLIC -fPIC)
 
